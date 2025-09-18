@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Girarus - Evento Online</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/imagens/icon.png" type="image/x-icon">
+
+    <!-- Google Fonts, MOntserrat e Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+</head>
+
+<body>
+
+    <!-- Cabeçalho e Navegação -->
+    <header>
+        <nav>
+            <div class="logo" onclick="window.location.href = 'index.html'">
+                <img src="assets/imagens/icon.png">
+                <p>Girarus</p>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#palestrantes">Palestrantes</a></li>
+                    <li><a href="#inscricao">Inscrição</a></li>
+                </ul>
+            </div>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+
+        <!-- Banner -->
+        <section class="banner">
+            <div class="conteudoBanner">
+                <div>
+                    <div class="tags">
+                        <div>18 de setembro de 2025</div>
+                        <div>19:00</div>
+                        <div>Doença Raras</div>
+                        <div>Online</div>
+                        <div>Gratuito</div>
+                        <div>Saúde</div>
+                        <div>Girarus</div>
+                        
+                    </div>
+                    <h1>[GIRARUS] Conferência Regional de Conscientização sobre Doenças Raras</h1>
+                    <p>Participe do nosso evento online, onde médicos, especialistas e representantes da Girarus se reúnem
+                        para compartilhar conhecimento, histórias inspiradoras e os últimos avanços no combate às
+                        doenças raras. Este é um espaço para aprender, se conectar e apoiar uma causa que impacta
+                        milhares de vidas.</p> <br>
+                    <p>Faça a diferença! Inscreva-se agora e ajude a ampliar a conscientização sobre doenças raras.</p>
+                    <br>
+                    <p>Evento gratuito com vagas limitadas.</p> <br>
+                </div>
+            </div>
+            <div class="forms">
+                <div class="formulario">
+                    <h2>Inscreva-se</h2>
+                    <p>18 de setembro de 2025</p>
+                    <form
+                        action="https://docs.google.com/forms/d/e/1FAIpQLScmJHjv0YH5y8b2X4YHX9y8y5F3g8g6U6H6g6g6g6g6g6g/viewform"
+                        target="_blank">
+                        <input type="text" placeholder="Nome" required>
+                        <input type="email" placeholder="Email" required>
+                        <div class="checkbox">
+                            <input type="checkbox" name="" id="">
+                            <p>
+                                Aceito receber comunicações da ONG Girarus
+                                sobre este e outros eventos.
+                            </p>
+                        </div>
+
+                        <button type="submit" class="botaoInscrever">Inscreva-se</button>
+
+                        <p class="nota">*Vagas limitadas. Garanta sua inscrição o quanto antes!</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <div id="palestrantes"></div>
+
+        <hr>
+
+        <h1>Palestrantes</h1>
+
+        <div class="palestrantes">
+
+            <div class="palestrante">
+                <img src="assets/imagens/palestrantes/1.png">
+                <p class="nomePalestrante">Carla Silva</p>
+                <p class="cargoPalestrante">Psiquiatra e especialista em Doenças Raras</p>
+            </div>
+
+            <div class="palestrante">
+                <img src="assets/imagens/palestrantes/2.png">
+                <p class="nomePalestrante">Marcos Pontes </p>
+                <p class="cargoPalestrante">Organizador e co-fundador da ONG Girarus</p>
+            </div>
+
+            <div class="palestrante">
+                <img src="assets/imagens/palestrantes/3.png">
+                <p class="nomePalestrante">Renata Garcia</p>
+                <p class="cargoPalestrante">Fundadora da ONG Girarus e gerente de Marketing</p>
+            </div>
+
+            <div class="palestrante">
+                <img src="assets/imagens/palestrantes/4.png">
+                <p class="nomePalestrante">Heitor Duarte</p>
+                <p class="cargoPalestrante">Médico e MBA em Doenças Raras</p>
+            </div>
+
+        </div>
+
+    </main>
+
+    <hr>
+
+    <!-- Inscrição e detalhes -->
+    <section class="inscricao" id="inscricao">
+
+        <!-- Inscrição -->
+        <div class="forms">
+            <div class="formulario">
+                <h2>Inscreva-se</h2>
+                <p>18 de setembro de 2025</p>
+                <form
+                    action="https://docs.google.com/forms/d/e/1FAIpQLScmJHjv0YH5y8b2X4YHX9y8y5F3g8g6U6H6g6g6g6g6g6g/viewform"
+                    target="_blank">
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="Email" required>
+                    <div class="checkbox">
+                        <input type="checkbox" name="" id="">
+                        <p>
+                            Aceito receber comunicações da ONG Girarus
+                            sobre este e outros eventos.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="botaoInscrever">Inscreva-se</button>
+
+                    <p class="nota">*Vagas limitadas. Garanta sua inscrição o quanto antes!</p>
+                </form>
+            </div>
+        </div>
+
+        <!-- Detalhes -->
+        <div class="detalhesEvento">
+            <h2>Detalhes do evento</h2>
+
+            <div class="detalhe">
+                <i class="bi bi-calendar-event"></i>
+                <p>Data: 18 de setembro de 2025</p>
+            </div>
+            <div class="detalhe">
+                <i class="bi bi-clock"></i>
+                <p>Horário: 19:00</p>
+            </div>
+            <div class="detalhe">
+                <i class="bi bi-geo-alt"></i>
+                <p>Local: Teams e YouTube</p>
+            </div>
+
+            <h2>Vídeo do evento</h2>
+            <video src="assets/video.mp4" controls poster="assets/imagens/poster.png"></video>
+        </div>
+    </section>
+
+    <hr>
+
+    <footer>
+        <div class="rodape">
+
+            <div class="logo" onclick="window.location.href = 'index.html'">
+                <img src="assets/imagens/icon.png">
+                <p>Girarus</p>
+            </div>
+
+            <div class="contato">
+                <h2>Quem somos</h2>
+
+                <p>
+                    Fundada em 2025, a ONG Girarus tem como missão conscientizar sobre doenças raras, oferecendo
+                    conteúdos educativos e informativos para pacientes, familiares e a sociedade.
+                </p>
+
+                <p>
+                    Nossa visão é promover uma sociedade mais inclusiva e consciente, onde pessoas com doenças raras
+                    recebam
+                    apoio, informação e visibilidade, fortalecendo uma rede de solidariedade e cuidado.
+                </p>
+
+                <h3>Nos acompanhe nas redes sociais</h3>
+
+                <div class="redes-sociais">
+                    <a href="https://www.facebook.com/onggirarus" target="_blank"> <i class="bi bi-facebook"></i></a>
+                    <a href="https://www.instagram.com/onggirarus/" target="_blank"> <i class="bi bi-instagram"></i>
+                        <a href="https://www.linkedin.com/company/ong-girarus/" target="_blank"> <i
+                                class="bi bi-linkedin"></i></a>
+                        <a href="https://www.youtube.com/@onggirarus" target="_blank"> <i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+        </div>
+        <div class="direitos">
+            <p>©2025 Girarus. Todos os direitos reservados. <br>
+            <p>Desenvolvido com <i class="bi bi-heart-fill" style="color: var(--vermelho-carmesim);"></i> e muita <i class="bi bi-music-note-beamed" style="color: var(--laranja-salmao);"></i> por Dani RSena
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
