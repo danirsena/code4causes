@@ -1,0 +1,39 @@
+#curiosidades {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-image: url('../media/imagens/siri-cascudo.jpeg');
+}
+
+#curiosidades div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--brown-shorts);
+}
+
+#curiosidades div h1 {
+    text-shadow: 3px 3px 0 var(--red-tie);
+    color: var(--yellow-bob);
+}
+
+#curiosidades div ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+}
+
+#curiosidades div ul li {
+    background: url('../media/imagens/sirigueijo.png') no-repeat left center;
+    background-color: var(--yellow-bob);
+    background-size: 12px 12px;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px var(--brown-shorts);
+    text-align: justify;
+    color: var(--brown-shorts);
+}

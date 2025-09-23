@@ -1,0 +1,60 @@
+#convite {
+    background-image: url('../media/imagens/1.jpeg');
+    align-items: center;
+    justify-content: center;
+    color: var(--sea-green);
+    gap: 20px;
+    padding-bottom: 100px;
+    padding-top: 50px;
+}
+
+#convite img {
+    width: 150px;
+    height: 150px;
+}
+
+.hero_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: var(--white);
+    border-radius: 12px;
+    box-shadow: 5px 10px var(--rosa-Patrick);
+}
+
+.hero_container .titulo {
+    font-size: 24px;
+    color: var(--rosa-Patrick);
+    font-weight: bold;
+    text-shadow: 1px 1px 0 var(--sea-green);
+}
+
+.botoes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue-sky);
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.botao p {
+    color: var(--yellow-bob);
+    font-weight: bold;
+}
+
+#sim:hover, #nao:hover {
+    scale: 1.1;
+    color: var(--branco);
+    gap: 15px;
+}

@@ -1,0 +1,45 @@
+#programacao {
+   /* background-image: url('../media/imagens/3.png');
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;*/
+    background-color: var(--brown-shorts);
+}
+
+.item-programacao {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-programacao div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-programacao div .hora {
+    display: flex;
+    background-image: url("../media/imagens/fundo.webp");
+    color: var(--yellow-bob);
+    font-weight: bold;
+    justify-content: right;
+    padding: 15px;
+    border-radius: 50px;
+    width: 150px;
+    margin-left: -30px;
+}
+
+.item-programacao div span {
+    font-weight: bold;
+    color: var(--yellow-bob);
+    font-size: larger;
+    text-align: left;
+    padding: 25px 0px;
+}
+
+.item-programacao p {
+    text-align: justify;
+    padding: 12px 25px;
+    line-height: 20px;
+}

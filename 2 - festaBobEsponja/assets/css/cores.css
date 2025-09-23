@@ -1,0 +1,29 @@
+:root {
+    --yellow-bob: #FFD94D;
+    --calca-bob: ;
+    --white: #FFFFFF;
+    --vermelho: #E32636;
+    --fundo: #1E90FF;
+    --rosa-Patrick: #FF91A4;
+    --verde-agua: #7FFFD4;
+    --lula-molusco: #9AC0CB;
+    --roxo-jelly: #BA55D3;
+
+    --yellow-bob: #FFEB3B;
+    /* corpo do Bob */
+    --blue-sky: #00B0FF;
+    /* céu */
+    --brown: #8D6E63;
+    --brown-shorts: #BB5802;
+    /* calça */
+    --red-tie: #E53935;
+    /* gravata */
+    --black: #000000;
+    /* contornos, textos */
+    --sand-beige: #FFF9C4;
+    /* fundo ou detalhes */
+    --sea-green: #4DB6AC;
+    /* água/mar */
+
+    --gradiente: linear-gradient(to bottom, var(--amarelo-bob), var(--fundo));
+}
