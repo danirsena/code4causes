@@ -6,7 +6,7 @@ export function efeitosDoConvite() {
     const imgNao = document.getElementById('imgNao');
 
     sim.addEventListener('mouseenter', () => {
-        convite.src = 'assets/media/imagens/sim.gif';
+        convite.src = 'assets/media/imagens/SIM.gif';
         imgSim.style.display = "block"; // mostra a imagem
     });
     sim.addEventListener('mouseleave', () => {
@@ -15,7 +15,7 @@ export function efeitosDoConvite() {
     });
 
     nao.addEventListener('mouseenter', () => {
-        convite.src = 'assets/media/imagens/nao.gif';
+        convite.src = 'assets/media/imagens/NAO.gif';
         imgNao.style.display = "block"; // mostra a imagem
     });
     nao.addEventListener('mouseleave', () => {
@@ -32,11 +32,11 @@ export function modalConvite(resposta) {
     modal.style.display = "flex";
 
     if (resposta == 'sim') {
-        modal_content.style.backgroundImage = "url('../assets/media/imagens/SIM!.gif')";
+        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/SIM!.gif')";
         h2.textContent = "EBA!";
 
     } else if (resposta == 'nao') {
-        modal_content.style.backgroundImage = "url('../assets/media/imagens/NAO!.gif')";
+        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/NAO!.gif')";
         h2.textContent = "Tudo bem então :(";
     }
 }
