@@ -32,11 +32,11 @@ export function modalConvite(resposta) {
     modal.style.display = "flex";
 
     if (resposta == 'sim') {
-        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/SIM!.gif')";
+        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/good_end.gif')";
         h2.textContent = "EBA!";
 
     } else if (resposta == 'nao') {
-        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/NAO!.gif')";
+        modal_content.style.backgroundImage = "url('../2 - festaBobEsponja/assets/media/imagens/bad_end.gif')";
         h2.textContent = "Tudo bem então :(";
     }
 }

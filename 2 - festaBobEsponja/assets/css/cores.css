@@ -26,4 +26,13 @@
     /* água/mar */
 
     --gradiente: linear-gradient(to bottom, var(--amarelo-bob), var(--fundo));
+
+    /* Bolhas */
+
+    --bg-color: #f0f2f5;
+    --text-color: #1f2937;
+    --card-bg: #ffffff;
+    --card-hover: #e2e8f0;
+    --icon-color: #4b5563;
+    --shadow: rgba(0, 0, 0, 0.1);
 }
