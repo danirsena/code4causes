@@ -56,7 +56,6 @@ hr {
     width: 100vw;
 }
 
-/* Fundo escuro + blur */
 .overlay {
     position: fixed;
     top: 0;
@@ -91,7 +90,6 @@ hr {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     color: var(--black);
 }
-
 
 .bubble {
     position: absolute;

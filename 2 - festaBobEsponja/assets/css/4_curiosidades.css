@@ -41,3 +41,15 @@
     text-align: justify;
     color: var(--brown-shorts);
 }
+
+@media screen and (min-width: 600px) {
+    #curiosidades div ul li {
+        background-size: 12px 12px;
+        font-size: larger;
+        padding: 25px 25px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px var(--brown-shorts);
+        text-align: justify;
+        color: var(--brown-shorts);
+    }
+}
