@@ -97,6 +97,11 @@ section {
 
 .hero {
     padding-top: 100px;
+    background-image: url('imagens/fundo-hero.webp');
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
 }
 
 /* 2. Evento ---------------------------------------------*/
@@ -282,4 +287,74 @@ section {
         transform: translateX(200px);
         /* move exatamente a largura de 1 semicirculo */
     }
+}
+
+/* 3. Quem somos e estatísticas ---------------------------------------------*/
+
+.quem-somos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 150px;
+    text-align: center;
+    background-color: var(--bege);
+    color: var(--marrom);
+    text-align: left;
+}
+
+.quem-somos h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: var(--verde-menta);
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+}
+
+.quem-somos p {
+    font-size: 24px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 50px 0;
+    gap: 20px;
+}
+
+.stats img {
+    height: 250px;
+    width: auto;
+    margin-bottom: 10px;
+}
+
+.stat {
+    background: var(--verde-menta);
+    color: var(--branco);
+    padding: 50px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease-out;
+}
+
+.stat.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat .number {
+    font-size: 5rem;
+    margin-bottom: 10px;
+    display: block;
+    font-family: 'Lustria', serif;
 }
