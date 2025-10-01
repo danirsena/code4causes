@@ -52,6 +52,10 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo img {
+    height: 60px;
+}
+
 header h1 {
     color: var(--marrom);
     font-size: 36px;
@@ -113,7 +117,7 @@ section {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    padding: 50px 10px;
+    padding: 25px 10px;
     text-align: center;
 }
 
@@ -143,26 +147,30 @@ section {
 .evento-image {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: baseline;
-    padding-top: 30px;
-    padding-left: 35px;
-    padding-right: 35px;
-    background-color: var(--cinza);
-    object-fit: cover;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+    width: 180px;
+    margin: 20px;
 }
 
 .evento-image img {
-    width: 250px;
+    width: 150px;
+    /* tamanho da foto */
     height: auto;
+    display: block;
 }
 
 .evento-image p {
-    font-size: 16px;
-    color: var(--marrom);
+    font-size: 14px;
+    color: #333;
     margin-top: 10px;
     text-align: center;
 }
+
 
 .detalhes {
     display: flex;
@@ -173,4 +181,105 @@ section {
     width: 100%;
     color: var(--marrom);
     font-weight: bold;
+}
+
+.detalhes h3 {
+    margin-left: 87px;
+    margin-bottom: 20px;
+}
+
+.detalhes-participacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: left;
+    width: 100%;
+    max-height: max-content;
+    font-size: 24px;
+    color: var(--marrom);
+    font-weight: normal;
+}
+
+.passos {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 80%;
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.passo {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 200px;
+    background-color: var(--bege);
+    border-radius: 10%;
+    border: 6px solid var(--marrom);
+    box-shadow: 5px 5px 0 var(--marrom);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.passo:hover {
+    transform: translate(-5px, -5px);
+    box-shadow: 17px 17px 0 var(--preto);
+}
+
+.passo h3 {
+    font-size: 24px;
+    color: var(--marrom);
+    margin-bottom: 10px;
+    margin-top: 25px;
+    text-align: left;
+    margin-left: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.passo h3 {
+    transform: translateX(0);
+}
+
+.passo p {
+    font-size: 16px;
+    color: var(--marrom);
+    text-align: justify;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.mar {
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    /* mais largo que a tela para deslizar */
+    height: 50vh;
+    /* ocupa 20% da altura da viewport */
+
+    background: repeating-radial-gradient(circle at bottom,
+            /* círculo ancorado embaixo → só aparece metade de cima */
+            #fdddfd 0 100px,
+            /* cor rosa até 100px de raio */
+            transparent 101px 200px
+            /* resto transparente → só sobra a metade */
+        );
+
+    background-size: 200px 100%;
+    /* cada semicirculo tem 200px de largura */
+    animation: onda 6s linear infinite;
+}
+
+@keyframes onda {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(200px);
+        /* move exatamente a largura de 1 semicirculo */
+    }
 }
