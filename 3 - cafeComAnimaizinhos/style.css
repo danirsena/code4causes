@@ -15,11 +15,37 @@
     font-family: 'Roboto', sans-serif;
 }
 
+html,
+body {
+    height: 100%;
+    margin: 0;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
 body {
     background-color: var(--rosa);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Lustria', sans-serif;
+    color: var(--marrom);
+}
+
 header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
     background-color: var(--verde-menta);
     padding: 20px;
     text-align: center;
@@ -54,4 +80,97 @@ nav ul li a {
 
 nav ul li a:hover {
     color: var(--preto);
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.hero {
+    padding-top: 100px;
+}
+
+/* 2. Evento ---------------------------------------------*/
+
+.evento {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--verde-menta);
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    justify-content: left;
+}
+
+.sobre-evento {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    padding: 50px 10px;
+    text-align: center;
+}
+
+.evento h2 {
+    font-size: 64px;
+    color: var(--marrom);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.evento p {
+    max-width: 600px;
+    margin: 20px auto;
+    color: var(--branco);
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: left;
+}
+
+.evento-images {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+}
+
+.evento-image {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: baseline;
+    padding-top: 30px;
+    padding-left: 35px;
+    padding-right: 35px;
+    background-color: var(--cinza);
+    object-fit: cover;
+}
+
+.evento-image img {
+    width: 250px;
+    height: auto;
+}
+
+.evento-image p {
+    font-size: 16px;
+    color: var(--marrom);
+    margin-top: 10px;
+    text-align: center;
+}
+
+.detalhes {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: left;
+    font-size: 24px;
+    width: 100%;
+    color: var(--marrom);
+    font-weight: bold;
 }
