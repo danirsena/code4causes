@@ -10,6 +10,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap&family=Lustria"
     rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 
 </head>
 
@@ -33,7 +34,7 @@
     <div class="hero-text">
       <h2>Seja bem vindo ao</h2>
       <h1>1º Coffee break da ONG Animaizinhos</h1>
-      <button>Quero participar!</button>
+      <button id="open-modal">Quero participar!</button>
     </div>
     <div class="hero-images">
       <img src="" alt="Cachorrinho 1">
@@ -71,7 +72,8 @@
         <div class="passos">
           <div class="passo">
             <h3>1. Faca sua inscrição</h3>
-            <p>Você preenche seus dados e aguarda o e-mail de confirmação no seu e-mail</p>
+            <p>Você preenche seus dados clicando <a onclick="openModal()">aqui</a> e aguarda o e-mail de confirmação no
+              seu e-mail</p>
           </div>
           <div class="passo">
             <h3>2. Chegue no horário</h3>
@@ -89,7 +91,6 @@
       </div>
 
     </div>
-    <div class="mar"></div>
   </section>
 
   <!-- Cat cafe -->
@@ -116,16 +117,36 @@
 
       <img src="imagens/happyhappyhappy.gif" alt="">
 
-      <div class="stat" data-target="100">
+      <div class="stat" data-target="30">
         <div class="stat-content">
           <p class="number">0</p>
-          <span>Animais Encontraram Lar</span>
+          <span>Novas Familias Formadas</span>
         </div>
       </div>
     </div>
-
-
   </section>
+
+  <!-- Modal de inscrição -->
+  <div class="overlay" id="modalOverlay">
+    <div class="modal">
+      <button class="close-btn" id="closeModal"> <i class="bi bi-x-lg""></i></button>
+
+      <div class="modal-logo">
+        <img src="imagens/caozinho_gatinho.png" alt="">
+        <h3>ONG Animaizinhos</h3>
+      </div>
+
+      <p>Que legal!</p>
+      <p>Preencha os dados para confirmar sua presença!</p>
+
+      <form>
+        <input type="text" placeholder="Nome" required>
+        <input type="email" placeholder="E-mail" required>
+        <input type="tel" placeholder="Telefone" required>
+        <input type="submit" value="Enviar!">
+      </form>
+    </div>
+  </div>
   <script src="script.js"></script>
 </body>
 

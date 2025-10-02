@@ -1,5 +1,5 @@
 :root {
-    --rosa: #fdddfd;
+    --rosa: #fddddd;
     --verde-menta: #B0E0D6;
     --marrom: #A07f68;
     --branco: #FFFFFF;
@@ -41,7 +41,6 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -50,6 +49,7 @@ header {
     padding: 20px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: absolute;
 }
 
 .logo img {
@@ -95,6 +95,8 @@ section {
     font-size: 2rem;
 }
 
+/* 1. Hero ---------------------------------------------*/
+
 .hero {
     padding-top: 100px;
     background-image: url('imagens/fundo-hero.webp');
@@ -115,6 +117,9 @@ section {
     margin: 0;
     padding: 0;
     justify-content: left;
+    background-image: url('imagens/fundo-evento.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .sobre-evento {
@@ -122,12 +127,12 @@ section {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    padding: 25px 10px;
+    padding-top: 25px;
     text-align: center;
 }
 
 .evento h2 {
-    font-size: 64px;
+    font-size: 48px;
     color: var(--marrom);
     margin-bottom: 20px;
     text-align: left;
@@ -163,19 +168,17 @@ section {
 }
 
 .evento-image img {
-    width: 150px;
-    /* tamanho da foto */
-    height: auto;
+    width: 155px;
+    height: 190px;
     display: block;
 }
 
 .evento-image p {
-    font-size: 14px;
+    font-size: 12px;
     color: #333;
     margin-top: 10px;
     text-align: center;
 }
-
 
 .detalhes {
     display: flex;
@@ -210,17 +213,16 @@ section {
     flex-direction: row;
     justify-content: space-around;
     width: 80%;
-    padding: 20px 10px;
+    padding: 12px 10px;
     text-align: center;
 }
 
 .passo {
     display: flex;
     flex-direction: column;
-    width: 350px;
-    height: 200px;
+    width: 300px;
+    height: 120px;
     background-color: var(--bege);
-    border-radius: 10%;
     border: 6px solid var(--marrom);
     box-shadow: 5px 5px 0 var(--marrom);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -232,61 +234,33 @@ section {
 }
 
 .passo h3 {
-    font-size: 24px;
+    margin-top: 10px;
+    font-size: 15px;
     color: var(--marrom);
-    margin-bottom: 10px;
-    margin-top: 25px;
     text-align: left;
     margin-left: 15px;
-    font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 15px;
-    position: relative;
-    overflow: hidden;
-}
-
-.passo h3 {
     transform: translateX(0);
 }
 
 .passo p {
-    font-size: 16px;
+    font-size: 12px;
     color: var(--marrom);
     text-align: justify;
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 0;
+    margin-top: 0;
 }
 
-.mar {
-    bottom: 0;
-    left: 0;
-    width: 200%;
-    /* mais largo que a tela para deslizar */
-    height: 50vh;
-    /* ocupa 20% da altura da viewport */
-
-    background: repeating-radial-gradient(circle at bottom,
-            /* círculo ancorado embaixo → só aparece metade de cima */
-            #fdddfd 0 100px,
-            /* cor rosa até 100px de raio */
-            transparent 101px 200px
-            /* resto transparente → só sobra a metade */
-        );
-
-    background-size: 200px 100%;
-    /* cada semicirculo tem 200px de largura */
-    animation: onda 6s linear infinite;
+.passo a {
+    color: var(--preto);
 }
 
-@keyframes onda {
-    0% {
-        transform: translateX(0);
-    }
-
-    100% {
-        transform: translateX(200px);
-        /* move exatamente a largura de 1 semicirculo */
-    }
+.passo a:hover {
+    color: var(--marrom);
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 /* 3. Quem somos e estatísticas ---------------------------------------------*/
@@ -297,8 +271,8 @@ section {
     align-items: center;
     justify-content: left;
     padding-left: 60px;
-    padding-right: 60px;
-    padding-top: 150px;
+    padding-right: 70px;
+    padding-top: 80px;
     text-align: center;
     background-color: var(--bege);
     color: var(--marrom);
@@ -314,7 +288,7 @@ section {
 }
 
 .quem-somos p {
-    font-size: 24px;
+    font-size: 18px;
     line-height: 1.6;
     margin-bottom: 40px;
     width: 100%;
@@ -326,11 +300,11 @@ section {
     align-items: center;
     width: 100%;
     margin: 50px 0;
-    gap: 20px;
+    gap: 10px;
 }
 
 .stats img {
-    height: 250px;
+    height: 200px;
     width: auto;
     margin-bottom: 10px;
 }
@@ -353,8 +327,124 @@ section {
 }
 
 .stat .number {
-    font-size: 5rem;
+    font-size: 3rem;
     margin-bottom: 10px;
     display: block;
-    font-family: 'Lustria', serif;
+    font-family: 'Montserrat', serif;
+}
+
+.stat span {
+    font-size: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* 4. Modal ---------------------------------------------------------------*/
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.overlay.active {
+    display: flex;
+}
+
+.modal {
+    background: var(--rosa);
+    padding: 20px 30px;
+    border-radius: 24px;
+    width: 390;
+    height: 560px;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    color: var(--marrom);
+}
+
+.modal-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.modal img {
+    margin-right: 10px;
+    height: 82px;
+    width: auto;
+}
+
+.modal h3 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.modal p {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 32px;
+    right: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: var(--marrom);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    gap: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--marrom);
+    border-radius: 6px;
+    font-size: 16px;
+    color: var(--marrom);
+}
+
+input[type="submit"] {
+    background-color: var(--branco);
+    color: var(--marrom);
+    cursor: pointer;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid var(--marrom);
+    border-radius: 6px;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--marrom);
+    color: var(--branco);
 }
