@@ -22,10 +22,12 @@
       ONG Animaizinhos
     </div>
     <nav>
-      <a href="#evento">Evento</a>
-      <a href="#catcafe">Cat cafe</a>
-      <a href="#quem-somos">Quem somos</a>
-      <a href="#depoimentos">Depoimentos</a>
+      <ul>
+        <li><a href="#evento">Evento</a></li>
+        <li><a href="#catcafe">Cat cafe</a></li>
+        <li><a href="#quem-somos">Quem somos</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
     </nav>
   </header>
 
@@ -34,11 +36,11 @@
     <div class="hero-text">
       <h2>Seja bem vindo ao</h2>
       <h1>1º Coffee break da ONG Animaizinhos</h1>
-      <button id="open-modal">Quero participar!</button>
+      <button id="open-modal" class="btn-hero">Quero participar!</button>
     </div>
-    <div class="hero-images">
-      <img src="" alt="Cachorrinho 1">
-      <img src="" alt="Cachorrinho 2">
+    <div class="hero-img">
+      <img src="/3 - cafeComAnimaizinhos/imagens/cachorrinho1.png" alt="Cachorrinho 1" class="caes">
+      <img src="/3 - cafeComAnimaizinhos/imagens/cachorrinho2.png" alt="Cachorrinho 2" class="caes">
     </div>
   </section>
 
@@ -94,7 +96,19 @@
   </section>
 
   <!-- Cat cafe -->
-  <section class="catcafe" id="catcafe"></section>
+  <section class="catcafe" id="catcafe">
+    <div class="catcafe-container">
+        <div class="text-content">
+            <h1>Mas o que é um cat café ou neko café?</h1>
+            <p>Um neko café é um tipo de cafeteria temática muito popular no Japão, onde os clientes podem desfrutar de bebidas e lanches enquanto interagem com gatos que vivem no local. A proposta é criar um ambiente aconchegante e relaxante, perfeito para quem ama felinos, unindo a experiência de um café acolhedor ao carinho e companhia dos animais.</p>
+        </div>
+        <div class="catcafe-img">
+            <img src="/3 - cafeComAnimaizinhos/imagens/catcafe.webp" alt="Interior de um cat café" class="img-1">
+            <img src="/3 - cafeComAnimaizinhos/imagens/catcafe2.jpg" alt="Gato em um cat café" class="img-2">
+        </div>
+    </div>
+      
+  </section>
 
   <!-- Quem somos -->
   <section class="quem-somos" id="quem-somos">
@@ -148,8 +162,71 @@
   </div>
   </div>
 
-  <section class="depoimentos" id="depoimentos">
+ <section class="depoimentos" id="depoimentos">
+  <h2 class="section-titulo">Famílias Formadas com a ONG</h2>
 
+  <div class="carrossel-area">
+    <div class="carrossel-container">
+      <div class="carrossel">
+        <!-- Slide 1 -->
+        <div class="slide">
+          <div class="img-depoimentos">
+            <img src="/3 - cafeComAnimaizinhos/imagens/depoimento1.jpg" alt="Família Oliveira">
+          </div>
+          <div class="texto-depoimento">
+            <blockquote>
+              "Nós conhecemos o Café Pet Amor por indicação de amigos. A Babi nos escolheu no momento em que chegamos. A equipe da ONG foi super atenciosa, explicou todo o processo de adoção, e nos orientou com muito carinho. Adotar foi a melhor decisão que poderíamos ter tomado"
+            </blockquote>
+            <p class="familia">— Família Oliveira</p>
+          </div>
+        </div>
+                
+        <!-- Slide 2 -->
+        <div class="slide">
+            <div class="img-depoimentos">
+                <img src="/3 - cafeComAnimaizinhos/imagens/depoimento2.jpg" alt="Família Santos">
+            </div>
+            <div class="texto-depoimento">
+                <blockquote>
+                    "Adotamos o Thor há seis meses e foi uma experiência transformadora. O processo de adoção foi muito bem explicado e acompanhado pela equipe. Hoje, ele é parte integral da nossa família, trazendo alegria e amor todos os dias. Recomendamos a todos que pensam em adotar um animal!"
+                </blockquote>
+                <p class="familia">— Família Santos</p>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide">
+            <div class="img-depoimentos">
+                <img src="/3 - cafeComAnimaizinhos/imagens/depoimento3.jpg" alt="Família Silva">
+            </div>
+            <div class="texto-depoimento">
+                <blockquote>
+                    "A Luna chegou na nossa vida em um momento difícil e trouxe luz e alegria para nossa casa. O trabalho da ONG é incrível, desde o cuidado com os animais até o suporte pós-adoção. Estamos eternamente gratos por ter conhecido esse projeto maravilhoso."
+                </blockquote>
+                <p class="familia">— Família Silva</p>
+            </div>
+        </div> 
+      </div>
+    </div>
+
+      <div class="controles-externos">
+      <div class="carrossel-controles">
+        <button class="btn-carrossel" id="btn-prev">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <div class="indicadores">
+          <span class="indicador ativo" data-index="0"></span>
+          <span class="indicador" data-index="1"></span>
+          <span class="indicador" data-index="2"></span>
+        </div>
+
+        <button class="btn-carrossel" id="btn-next">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
   </section>
 
   <script src="script.js"></script>
@@ -190,7 +267,7 @@
 
     <div class="copyright">feito com muito &nbsp; <i class="bi bi-heart-fill"></i>&nbsp; e &nbsp; <i
         class="bi bi-music-note-beamed"></i> &nbsp;
-      por danirsena e luiza</div>
+      por danirsena e Luiza</div>
   </section>
 </body>
 

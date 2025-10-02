@@ -64,3 +64,67 @@ overlay.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
+
+//carrossel depoimentos
+document.addEventListener('DOMContentLoaded', function() {
+            const carrossel = document.querySelector('.carrossel');
+            const slides = document.querySelectorAll('.slide');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            const indicadores = document.querySelectorAll('.indicador');
+            
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+            
+            //Atualiza o carrossel
+            function updateCarrossel() {
+                carrossel.style.transform = `translateX(-${currentIndex * 100}%)`;
+                
+                // Atualiza os indicadores
+                indicadores.forEach((indicador, index) => {
+                    if (index === currentIndex) {
+                        indicador.classList.add('ativo');
+                    } else {
+                        indicador.classList.remove('ativo');
+                    }
+                });
+            }
+            
+            //Botões
+            btnNext.addEventListener('click', function() {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarrossel();
+            });
+            
+            
+            btnPrev.addEventListener('click', function() {
+                currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                updateCarrossel();
+            });
+            
+            // Evento para os indicadores
+            indicadores.forEach(indicador => {
+                indicador.addEventListener('click', function() {
+                    currentIndex = parseInt(this.getAttribute('data-index'));
+                    updateCarrossel();
+                });
+            });
+            
+            // Opção de Auto-play
+            let autoPlay = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                updateCarrossel();
+            }, 5000);
+            
+            // Pausar auto-play ao interagir
+            carrossel.addEventListener('mouseenter', () => {
+                clearInterval(autoPlay);
+            });
+            
+            carrossel.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateCarrossel();
+                }, 5000);
+            });
+        });
