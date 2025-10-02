@@ -265,6 +265,23 @@ section {
 
 /* 3. Quem somos e estatísticas ---------------------------------------------*/
 
+.catcafe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    padding-left: 60px;
+    padding-right: 70px;
+    padding-top: 80px;
+    text-align: center;
+    background-image: url(./imagens/fundo-catcafe.png);
+    background-size: cover;
+    background-position: center;
+    text-align: left;
+}
+
+/* 3. Quem somos e estatísticas ---------------------------------------------*/
+
 .quem-somos {
     display: flex;
     flex-direction: column;
@@ -447,4 +464,104 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: var(--marrom);
     color: var(--branco);
+}
+
+/* 5. Depoimentos ---------------------------------------------------------------*/
+
+/* 6. Rodapé ---------------------------------------------------------------*/
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    background: var(--bege);
+    color: var(--marrom);
+    padding: 20px;
+    text-align: center;
+}
+
+.rodape-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.rodape-logo img {
+    height: 82px;
+    width: auto;
+    margin-bottom: 30px;
+}
+
+.rodape-logo p {
+    margin-top: 0;
+    font-size: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rodape-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.espacamento {
+    margin: 0 20px;
+    background-color: var(--verde-menta);
+    height: 200px;
+    width: 5px;
+    margin-left: 200px;
+    margin-right: 25px;
+}
+
+.rodape-content-items {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    line-height: 1.5;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.rodape-content-items a {
+    text-decoration: none;
+    color: var(--marrom);
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.rodape-content-items p {
+    text-align: justify;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.redes-sociais {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 30px;
+}
+
+.rodape-content-items a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    display: flex;
+    align-items: center;
+    justify-self: flex-end;
+    margin-top: 10px;
+    color: var(--marrom);
+    padding: 50px 0;
 }
