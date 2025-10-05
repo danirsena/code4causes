@@ -107,6 +107,10 @@ nav ul li a:hover {
     color: var(--rosa);
 }
 
+.bi-list {
+    display: none;
+}
+
 section {
     height: 100vh;
     scroll-snap-align: start;
@@ -920,6 +924,10 @@ input[type="submit"]:hover {
         padding-right: 48px;
     }
 
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+
     .hero-items {
         display: flex;
         flex-direction: column-reverse;
@@ -933,9 +941,122 @@ input[type="submit"]:hover {
         height: 250px;
         width: 200px;
     }
+
+    .evento {
+        padding-left: 50px;
+        padding-right: 35px;
+    }
+
+    .evento-text h2 {
+        font-size: 2rem;
+    }
+
+    .evento-text p {
+        margin-right: 24px;
+    }
+
+    .evento-images {
+        gap: 20px;
+    }
+
+    .detalhes h2 {
+        margin-left: 0px;
+    }
+
+    .detalhes-participacao {
+        padding-left: 0px;
+        padding-right: 35px;
+    }
+
+    .catcafe {
+        padding: 0px
+    }
+
+    .text-content {
+        padding-left: 50px;
+        padding-right: 50px;
+        margin: 0px 50px;
+    }
+
+    .catcafe-container {
+        flex-direction: column;
+        margin: 0;
+        height: 100vh;
+    }
+
+    .catcafe-img {
+        flex-direction: row;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .catcafe-img img {
+        height: 210px;
+        width: 280px;
+    }
+
+    .quem-somos {
+        justify-content: space-between;
+    }
+
+    .quem-somos p {
+        margin-bottom: 12px;
+    }
+
+    .stat {
+        padding: 12px 24px;
+    }
+
+    .espacamento {
+        margin-left: 75px;
+    }
 }
 
 @media screen and (max-width: 856px) {
+
+    header {
+        flex-direction: column;
+        padding: 0px 0px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+        padding: 5% 5%;
+
+    }
+
+    .bi-list {
+        color: var(--marrom);
+        display: block;
+        font-size: 2rem;
+    }
+
+    nav {
+        display: none;
+    }
+
+    nav.active {
+        display: flex;
+        width: 100%;
+    }
+
+    nav ul {
+        margin-top: 32px;
+        flex-direction: column;
+        align-items: left;
+        width: 100%;
+    }
+
+    nav ul li {
+        padding: 10px 0;
+        border-bottom: 1px solid var(--marrom);
+        width: 100%;
+        text-align: left;
+    }
 
     .hero-text {
         padding-left: 20px;
@@ -943,17 +1064,117 @@ input[type="submit"]:hover {
     }
 
     .hero-text h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .hero-text h1 {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 
     .hero-img img {
         height: 250px;
         width: 200px;
     }
+
+    .detalhes {
+        justify-content: center;
+    }
+
+    .evento-images {
+        display: none;
+    }
+
+    .detalhes h2 {
+        font-size: 2rem;
+    }
+
+    .checklist-fofo li {
+        font-size: 1rem;
+    }
+
+    .text-content h1 {
+        font-size: 2rem;
+    }
+
+    .text-content p {
+        font-size: 1rem;
+    }
+
+    .catcafe-img img {
+        width: 200px;
+        height: 150px;
+    }
+
+    .quem-somos h2 {
+        font-size: 2rem;
+    }
+
+    .quem-somos p {
+        font-size: 1rem;
+        text-align: justify;
+    }
+
+    .stat.visible .number {
+        font-size: 3rem;
+        padding-bottom: 0px;
+    }
+
+    .stat span {
+        font-size: 1rem;
+    }
+
+    .stats img {
+        display: none;
+    }
+
+    .section-titulo {
+        font-size: 1.5rem;
+    }
+
+    .slide {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    .img-depoimentos img {
+        height: 200px;
+        width: 200px;
+    }
+
+    .texto-depoimento blockquote {
+        font-size: 1rem;
+    }
+
+    .rodape {
+        justify-content: space-between;
+    }
+
+    .rodape-content {
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+        flex: 1;
+        justify-content: space-around;
+    }
+
+    .espacamento {
+        display: none;
+    }
+
+    .rodape-content-items {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright {
+        padding: 0px;
+        font-size: 1rem;
+    }
+
 }
 
 @media screen and (max-width: 500px) {
@@ -1078,4 +1299,33 @@ input[type="submit"]:hover {
         display: none;
     }
 
+    .catcafe-container {
+        padding: 0px;
+    }
+
+    .catcafe-container .text-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .catcafe-container .text-content p {
+        text-align: justify;
+    }
+
+    .img-2 {
+        display: none;
+    }
+
+    .catcafe img {
+        height: auto;
+        width: 100%;
+    }
+
+    .img-1 {
+        height: auto;
+        width: 100%;
+    }
+
+    .rodape {
+        height: 100vh;
+    }
 }

@@ -1,5 +1,18 @@
-// 1. Modal do formulário
+// 1. Menu responsivo
 
+const btn_menu = document.getElementById('btn-menu');
+const menu = document.querySelector('nav');
+
+btn_menu.addEventListener('click', () => {
+    if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+    } else {
+        menu.classList.add('active');
+    }
+});
+
+
+// 2. Formulário de inscrição
 function openModal() {
     overlay.classList.add('active');
     document.body.classList.add('modal-open');
@@ -10,7 +23,7 @@ function closeModal() {
     document.body.classList.remove('modal-open');
 }
 
-// 2. Animação dos checklists da section "evento"
+// 3. Animação dos checklists da section "evento"
 
 const section = document.querySelector("#evento");
 const checklist = section.querySelector(".checklist-fofo");
@@ -28,7 +41,7 @@ const observer_checklist = new IntersectionObserver((entries) => {
 
 observer_checklist.observe(section);
 
-// 3. Animações da section "quem somos"
+// 4. Animações da section "quem somos"
 function animateNumber(stat) {
     const numberEl = stat.querySelector('.number');
     const target = +stat.getAttribute('data-target');
@@ -47,8 +60,6 @@ function animateNumber(stat) {
 }
 
 const stats = document.querySelectorAll('.stat');
-
-//variáveis do modal
 const openBtn = document.getElementById('open-modal');
 const overlay = document.getElementById('modalOverlay');
 const closeBtn = document.getElementById('closeModal');
@@ -86,7 +97,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
-//carrossel depoimentos
+// 5. Carrossel depoimentos
 document.addEventListener('DOMContentLoaded', function () {
     const carrossel = document.querySelector('.carrossel');
     const slides = document.querySelectorAll('.slide');
