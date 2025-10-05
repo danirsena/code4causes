@@ -36,11 +36,15 @@
     <div class="hero-text">
       <h2>Seja bem vindo ao</h2>
       <h1>1º Coffee break da ONG Animaizinhos</h1>
-      <button id="open-modal" class="btn-hero">Quero participar!</button>
     </div>
-    <div class="hero-img">
-      <img src="imagens/cachorrinho1.png" alt="Cachorrinho 1" class="caes">
-      <img src="imagens/cachorrinho2.png" alt="Cachorrinho 2" class="caes">
+
+    <div class="hero-items">
+      <button id="open-modal" class="btn-hero">Quero participar!</button>
+
+      <div class="hero-img">
+        <img src="imagens/cachorrinho1.png" alt="Cachorrinho 1" class="caes">
+        <img src="imagens/cachorrinho2.png" alt="Cachorrinho 2" class="caes">
+      </div>
     </div>
   </section>
 
@@ -57,10 +61,10 @@
       </div>
 
       <div class="evento-images">
-        <div class="evento-image"><img src="imagens/caozinho.webp" alt="Cachorrinho 2">
+        <div class="evento-image" id="patricia"><img src="imagens/caozinho.webp" alt="Cachorrinho 2">
           <p>Patricia, resgatada em 2025</p>
         </div>
-        <div class="evento-image"><img src="imagens/dona_com_caozinho.webp" alt="Cachorrinho 1">
+        <div class="evento-image" id="luiz"><img src="imagens/dona_com_caozinho.webp" alt="Cachorrinho 1">
           <p>Luiz e Claudia, <br> unidos pela ONG em 2025</p>
         </div>
       </div>
@@ -69,23 +73,17 @@
 
     <!-- Detalhes do evento -->
     <div class="detalhes">
-      <h3>E como participo?</h3>
+
+      <h2>E como participo?</h2>
+
       <div class="detalhes-participacao">
-        <div class="passos">
-          <div class="passo">
-            <h3>1. Faca sua inscrição</h3>
-            <p>Você preenche seus dados clicando <a onclick="openModal()">aqui</a> e aguarda o e-mail de confirmação no
-              seu e-mail</p>
-          </div>
-          <div class="passo">
-            <h3>2. Chegue no horário</h3>
-            <p>Assim garantimos que você terá seu lugar reservado!</p>
-          </div>
-          <div class="passo">
-            <h3>3. Aproveite a visita!</h3>
-            <p>Toda a renda será convertida para mais projetos como esse!</p>
-          </div>
-        </div>
+
+        <ul class="checklist-fofo">
+          <li><span class="check-icon">✔</span> Faça sua inscrição</li>
+          <li><span class="check-icon">✔</span> Chegue no horário</li>
+          <li><span class="check-icon">✔</span> Aproveite o evento</li>
+        </ul>
+
         <div class="evento-gatinho">
           <img src="imagens/gatinho.gif" alt="Gatinho">
         </div>
@@ -98,16 +96,19 @@
   <!-- Cat cafe -->
   <section class="catcafe" id="catcafe">
     <div class="catcafe-container">
-        <div class="text-content">
-            <h1>Mas o que é um cat café ou neko café?</h1>
-            <p>Um neko café é um tipo de cafeteria temática muito popular no Japão, onde os clientes podem desfrutar de bebidas e lanches enquanto interagem com gatos que vivem no local. A proposta é criar um ambiente aconchegante e relaxante, perfeito para quem ama felinos, unindo a experiência de um café acolhedor ao carinho e companhia dos animais.</p>
-        </div>
-        <div class="catcafe-img">
-            <img src="imagens/catcafe.webp" alt="Interior de um cat café" class="img-1">
-            <img src="imagens/catcafe2.jpg" alt="Gato em um cat café" class="img-2">
-        </div>
+      <div class="text-content">
+        <h1>Mas o que é um cat café ou neko café?</h1>
+        <p>Um neko café é um tipo de cafeteria temática muito popular no Japão, onde os clientes podem desfrutar de
+          bebidas e lanches enquanto interagem com gatos que vivem no local. A proposta é criar um ambiente aconchegante
+          e relaxante, perfeito para quem ama felinos, unindo a experiência de um café acolhedor ao carinho e companhia
+          dos animais.</p>
+      </div>
+      <div class="catcafe-img">
+        <img src="imagens/catcafe.webp" alt="Interior de um cat café" class="img-1">
+        <img src="imagens/catcafe2.jpg" alt="Gato em um cat café" class="img-2">
+      </div>
     </div>
-      
+
   </section>
 
   <!-- Quem somos -->
@@ -125,7 +126,7 @@
       <div class="stat" data-target="50">
         <div class="stat-content">
           <p class="number">0</p>
-          <span>Animais Resgatados</span>
+          <span>Animais <br> Resgatados</span>
         </div>
       </div>
 
@@ -134,7 +135,83 @@
       <div class="stat" data-target="30">
         <div class="stat-content">
           <p class="number">0</p>
-          <span>Novas Familias Formadas</span>
+          <span>Novas Famílias <br> Formadas</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="depoimentos" id="depoimentos">
+
+  
+      <h2 class="section-titulo">Famílias Formadas com a ONG</h2>
+  
+
+    <div class="carrossel-area">
+      <div class="carrossel-container">
+        <div class="carrossel">
+          <!-- Slide 1 -->
+          <div class="slide">
+            <div class="img-depoimentos">
+              <img src="imagens/depoimento1.jpg" alt="Família Oliveira">
+            </div>
+            <div class="texto-depoimento">
+              <blockquote>
+                "Nós conhecemos o Café Pet Amor por indicação de amigos. A Babi nos escolheu no momento em que chegamos.
+                A equipe da ONG foi super atenciosa, explicou todo o processo de adoção, e nos orientou com muito
+                carinho. Adotar foi a melhor decisão que poderíamos ter tomado"
+              </blockquote>
+              <p class="familia">— Família Oliveira</p>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="slide">
+            <div class="img-depoimentos">
+              <img src="imagens/depoimento2.jpg" alt="Família Santos">
+            </div>
+            <div class="texto-depoimento">
+              <blockquote>
+                "Adotamos o Thor há seis meses e foi uma experiência transformadora. O processo de adoção foi muito bem
+                explicado e acompanhado pela equipe. Hoje, ele é parte integral da nossa família, trazendo alegria e
+                amor todos os dias. Recomendamos a todos que pensam em adotar um animal!"
+              </blockquote>
+              <p class="familia">— Família Santos</p>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="slide">
+            <div class="img-depoimentos">
+              <img src="imagens/depoimento3.jpg" alt="Família Silva">
+            </div>
+            <div class="texto-depoimento">
+              <blockquote>
+                "A Luna chegou na nossa vida em um momento difícil e trouxe luz e alegria para nossa casa. O trabalho da
+                ONG é incrível, desde o cuidado com os animais até o suporte pós-adoção. Estamos eternamente gratos por
+                ter conhecido esse projeto maravilhoso."
+              </blockquote>
+              <p class="familia">— Família Silva</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controles-externos">
+        <div class="carrossel-controles">
+          <button class="btn-carrossel" id="btn-prev">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+
+          <div class="indicadores">
+            <span class="indicador ativo" data-index="0"></span>
+            <span class="indicador" data-index="1"></span>
+            <span class="indicador" data-index="2"></span>
+          </div>
+
+          <button class="btn-carrossel" id="btn-next">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -161,75 +238,6 @@
     </form>
   </div>
   </div>
-
- <section class="depoimentos" id="depoimentos">
-  <h2 class="section-titulo">Famílias Formadas com a ONG</h2>
-
-  <div class="carrossel-area">
-    <div class="carrossel-container">
-      <div class="carrossel">
-        <!-- Slide 1 -->
-        <div class="slide">
-          <div class="img-depoimentos">
-            <img src="imagens/depoimento1.jpg" alt="Família Oliveira">
-          </div>
-          <div class="texto-depoimento">
-            <blockquote>
-              "Nós conhecemos o Café Pet Amor por indicação de amigos. A Babi nos escolheu no momento em que chegamos. A equipe da ONG foi super atenciosa, explicou todo o processo de adoção, e nos orientou com muito carinho. Adotar foi a melhor decisão que poderíamos ter tomado"
-            </blockquote>
-            <p class="familia">— Família Oliveira</p>
-          </div>
-        </div>
-                
-        <!-- Slide 2 -->
-        <div class="slide">
-            <div class="img-depoimentos">
-                <img src="imagens/depoimento2.jpg" alt="Família Santos">
-            </div>
-            <div class="texto-depoimento">
-                <blockquote>
-                    "Adotamos o Thor há seis meses e foi uma experiência transformadora. O processo de adoção foi muito bem explicado e acompanhado pela equipe. Hoje, ele é parte integral da nossa família, trazendo alegria e amor todos os dias. Recomendamos a todos que pensam em adotar um animal!"
-                </blockquote>
-                <p class="familia">— Família Santos</p>
-            </div>
-        </div>
-        
-        <!-- Slide 3 -->
-        <div class="slide">
-            <div class="img-depoimentos">
-                <img src="imagens/depoimento3.jpg" alt="Família Silva">
-            </div>
-            <div class="texto-depoimento">
-                <blockquote>
-                    "A Luna chegou na nossa vida em um momento difícil e trouxe luz e alegria para nossa casa. O trabalho da ONG é incrível, desde o cuidado com os animais até o suporte pós-adoção. Estamos eternamente gratos por ter conhecido esse projeto maravilhoso."
-                </blockquote>
-                <p class="familia">— Família Silva</p>
-            </div>
-        </div> 
-      </div>
-    </div>
-
-      <div class="controles-externos">
-      <div class="carrossel-controles">
-        <button class="btn-carrossel" id="btn-prev">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-
-        <div class="indicadores">
-          <span class="indicador ativo" data-index="0"></span>
-          <span class="indicador" data-index="1"></span>
-          <span class="indicador" data-index="2"></span>
-        </div>
-
-        <button class="btn-carrossel" id="btn-next">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-  </section>
-
-  <script src="script.js"></script>
 
   <section class="rodape">
 
@@ -269,6 +277,8 @@
         class="bi bi-music-note-beamed"></i> &nbsp;
       por danirsena e Luiza</div>
   </section>
+
+  <script src="script.js"></script>
 </body>
 
 </html>
