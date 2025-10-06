@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Personagens</title>
+
+  <link rel="shortcut icon" href="rick_e_morty.jpeg" type="image/x-icon">
+
+  <!-- Fontes e ícones -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap&family=Lustria"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body data-theme="dark">
+
+  <header>
+    <div class="logo-title">
+      <img src="rick_e_morty.jpeg" alt="Logo do Desenho">
+      <h1>Rick e Morty</h1>
+    </div>
+    <div class="top-actions">
+      <input type="text" id="searchInput" placeholder="digite o id, nome, espécie, status ou origem">
+      <button id="randomBtn"> <img src="roll_or_die.png" alt="">
+        <p>Sortear <br> personagem</p>
+      </button>
+      <i class="fas fa-adjust theme-toggle" id="themeToggle"></i>
+    </div>
+  </header>
+
+  <main>
+    <div class="cards-container" id="cardsContainer">
+      <!-- Cards serão inseridos aqui via JS -->
+    </div>
+  </main>
+
+  <div class="modal" id="modal">
+    <div class="modal-content" id="modalContent">
+      <span class="modal-close" id="modalClose">&times;</span>
+      <!-- Conteúdo do modal será inserido aqui -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>
