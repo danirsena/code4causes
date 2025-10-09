@@ -277,3 +277,61 @@ p {
     font-size: 1.5rem;
     cursor: pointer;
 }
+
+@media screen and (max-width: 920px) {
+    .modal-content {
+        flex-direction: column;
+        width: 50%;
+    }
+
+    .modal-content h2 {
+        text-align: center;
+        padding-left: 0;
+    }
+}
+
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    #randomBtn p {
+        display: none;
+    }
+
+    .modal-content {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    header {
+        justify-content: space-between;
+    }
+    
+    .logo-title h1 {
+        display: none;
+    }
+
+    .top-actions input {
+        width: 150px;
+        padding: 0 5px;
+    }
+
+    .modal-content {
+        padding-top: 50px;
+    }
+
+    .modal-content img {
+        width: 200px;
+    }
+
+    .modal-text {
+        padding-left: 0px;
+    }
+
+    .modal-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .modal-text p {
+        font-size: 0.8rem;
+    }
+}

@@ -70,7 +70,7 @@ async function openModal(character) {
         <p><strong>Status:</strong> ${character.status}</p>
         <p><strong>Espécie:</strong> ${character.species}</p>
         <p><strong>Tipo:</strong> ${character.type ? character.type : 'Desconhecido'}</p>
-        <p><strong>Idade:</strong> ${character.gender}</p>
+        <p><strong>Gênero:</strong> ${character.gender}</p>
         <p><strong>Origem:</strong> ${character.origin.name === 'unknown' ? 'Desconhecida' : character.origin.name}</p>
         <p><strong>Localização:</strong> ${character.location.name === 'unknown' ? 'Desconhecida' : character.location.name}</p>
         <p><strong>Primeira aparição:</strong> ${await get_episode(character.episode[0])}</p></div>
