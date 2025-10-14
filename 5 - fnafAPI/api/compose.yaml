@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=fnafAPI'
+      - 'POSTGRES_PASSWORD=balloramother'
+      - 'POSTGRES_USER=willafton'
+    ports:
+      - '5432'

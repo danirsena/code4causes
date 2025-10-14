@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FNAF Games Encyclopedia</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="fazbear.png" type="image/x-icon">
+    <!-- Google Fonts, Roboto e MOntserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Menu Lateral -->
+    <aside id="sidebar" class="sidebar">
+        <button id="toggleSidebar" class="toggle-btn">☰</button>
+
+        <div class="sidebar-content">
+            <h2><a href="#hero" style="text-decoration: none; color: #ff9800;">FNAF Games</a></h2>
+
+            <!-- Busca -->
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar jogos ou personagens...">
+                <div id="searchResults" class="search-results"></div>
+            </div>
+
+            <!-- Navegação dos Jogos -->
+            <nav id="gameNav" class="game-nav"></nav>
+        </div>
+    </aside>
+
+    <!-- Conteúdo Principal -->
+    <main id="mainContent" class="main-content">
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">FNaF Encyclopedia</h1>
+                <p class="hero-subtitle">Explore o universo aterrorizante de Five Nights at Freddy's</p>
+                <div class="hero-description">
+                    <p>Bem-vindo à enciclopédia completa dos jogos FNAF! Aqui você encontrará informações detalhadas
+                        sobre cada jogo da franquia, seus personagens icônicos e suas histórias assustadoras.</p>
+                    <p>Five Nights at Freddy's é uma série de jogos de terror que revolucionou o gênero, criando uma
+                        mitologia complexa sobre animatrônicos possuídos em uma pizzaria. Navegue pelos jogos, descubra
+                        os segredos de cada personagem e mergulhe no lore que cativou milhões de fãs ao redor do mundo.
+                    </p>
+                </div>
+                <button class="hero-cta" onclick="scrollToGames()">Explorar Jogos ↓</button>
+            </div>
+        </section>
+
+        <!-- Sections dos Jogos -->
+        <div id="gamesContainer" class="games-container"></div>
+    </main>
+
+    <!-- Modal de Personagem -->
+    <div id="characterModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-body">
+                <div class="modal-header">
+                    <img id="modalImage" src="" alt="" class="modal-profile-img">
+                    <div class="modal-info">
+                        <h2 id="modalName"></h2>
+                        <span id="modalType" class="modal-type"></span>
+                    </div>
+                </div>
+
+                <p id="modalDescription" class="modal-description"></p>
+
+                <!-- Carrossel de Fotos -->
+                <div class="carousel-section">
+                    <h3>Galeria de Fotos</h3>
+                    <div class="carousel">
+                        <button class="carousel-btn prev" onclick="changePhoto(-1)">‹</button>
+                        <div id="photoCarousel" class="carousel-content"></div>
+                        <button class="carousel-btn next" onclick="changePhoto(1)">›</button>
+                    </div>
+                </div>
+
+                <!-- Carrossel de Áudios -->
+                <div class="carousel-section" id="audioSection">
+                    <h3>Áudios</h3>
+                    <div class="carousel">
+                        <button class="carousel-btn prev" onclick="changeAudio(-1)">‹</button>
+                        <div id="audioCarousel" class="carousel-content audio-carousel"></div>
+                        <button class="carousel-btn next" onclick="changeAudio(1)">›</button>
+                    </div>
+                </div>
+
+                <div id="noAudioMessage" class="no-audio" style="display: none;">
+                    <p>⚠️ Este personagem não possui áudios disponíveis</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
