@@ -44,7 +44,7 @@ h6 {
   font-family: "Montserrat", sans-serif;
 }
 
-i {
+.music-toggle {
   position: fixed;
   top: 20px;
   right: 20px;
@@ -908,4 +908,128 @@ i {
     flex-direction: column;
     text-align: center;
   }
+}
+
+#loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #111;
+  /* escuro estilo FNAF */
+  color: #ffcc00;
+  font-family: "Arial Black", sans-serif;
+  text-align: center;
+}
+
+#loader-gif {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+#loader-bar {
+  width: 300px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+#loader-progress {
+  height: 100%;
+  width: 0%;
+  background-color: #ffcc00;
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(90deg, #0b0c17, #1c1e2b);
+  align-items: center;
+  padding: 15px 72px;
+  width: 100%;
+  border-top: 2px solid #ffcc00;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.footer-fnaf {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+  display: flex;
+  align-items: center;
+}
+
+.footer-center {
+  padding: 15px 0px;
+  color: #ff9800;
+}
+
+.footer-center i {
+  padding: 0 5px;
+}
+
+.footer-logo {
+  width: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: 2px solid #ffcc00;
+}
+
+
+.footer-title {
+  color: #ff9800;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  font-size: 2rem;
+  gap: 10px;
+}
+
+.footer-left img {
+  width: 187px;
+  height: 187px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer-text {
+  color: #ff9800;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  font-size: 1.5rem;
+  gap: 10px;
+}
+
+.footer-text .version {
+  display: block;
+  font-size: 1rem;
+  color: #ccc;
+  margin-top: 2px;
+}
+
+.fazbear-nao-se-responsabiliza {
+  display: block;
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 24px;
+}
+
+.footer-right a {
+  color: #ff9800;
+  margin-left: 15px;
+  font-size: 1.2rem;
+  transition: transform 0.2s;
+}
+
+
+.footer-right a:hover {
+  transform: scale(1.2);
 }

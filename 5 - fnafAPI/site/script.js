@@ -438,29 +438,36 @@ document.addEventListener("keydown", (e) => {
 })
 
 async function loadAPIFNaF() {
-
+  const loaderProgress = document.getElementById("loader-progress");
+  
   try {
+    // Carrega animatronics
+    const response = await fetch("https://apifnaf-site.onrender.com/apiFNAF/animatronics");
+    const data = await response.json();
+    data.forEach((animatronic, i) => {
+      animatronics.push(animatronic);
+      loaderProgress.style.width = `${((i+1)/data.length)*50}%`; // 50% da barra
+    });
 
-    // Carrega com os animatronics
-    const response = await fetch("https://apifnaf-site.onrender.com/apiFNAF/animatronics")
-    const data = await response.json()
+    // Carrega games
+    const response2 = await fetch("https://apifnaf-site.onrender.com/apiFNAF/games");
+    const data2 = await response2.json();
+    data2.forEach((game, i) => {
+      games.push(game);
+      loaderProgress.style.width = `${50 + ((i+1)/data2.length)*50}%`; // 50% restante
+    });
 
-    data.forEach(animatronic => {
-      animatronics.push(animatronic)
-    })
-
-    //Carrega com os games
-    const response2 = await fetch("https://apifnaf-site.onrender.com/apiFNAF/games")
-    const data2 = await response2.json()
-
-    data2.forEach(game => {
-      games.push(game)
-    })
+    // Quando terminar, esconde o loader e mostra o site
+    document.getElementById("loader").style.display = "none";
+    document.getElementById("site-content").style.display = "block";
 
   } catch (error) {
-    console.error("Erro ao carregar os dados:", error)
+    console.error("Erro ao carregar os dados:", error);
+    loaderProgress.style.backgroundColor = "red";
+    loaderProgress.style.width = "100%";
   }
 }
+
 
 // Inicia o jogo
 document.addEventListener("DOMContentLoaded", async () => {

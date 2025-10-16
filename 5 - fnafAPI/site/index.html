@@ -19,6 +19,17 @@
 </head>
 
 <body>
+
+    <!-- Loader -->
+    <div id="loader">
+        <img src="fazbear.gif" alt="Fazbear animatronic" id="loader-gif" />
+        <div id="loader-bar">
+            <div id="loader-progress"></div>
+        </div>
+        <p>A FAZBEARS agradece sua colaboração!<br>Os animatronics estão sendo carregados...</p>
+    </div>
+
+
     <!-- Menu Lateral -->
     <aside id="sidebar" class="sidebar">
         <button id="toggleSidebar" class="toggle-btn">☰</button>
@@ -103,11 +114,41 @@
         </div>
     </div>
 
-    <button id="musicToggle" class="btn ">
+    <button id="musicToggle" class="music-toggle">
         <i id="musicIcon" class="bi bi-volume-mute-fill"></i>
     </button>
 
-    <audio id="backgroundMusic" src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/UCN_main_menu_theme.ogg" loop></audio>
+    <audio id="backgroundMusic"
+        src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/UCN_main_menu_theme.ogg" loop></audio>
+
+    <!-- Conteúdo do site -->
+    <div id="site-content" style="display:none;">
+        <!-- Aqui vai seu site normal -->
+    </div>
+
+
+    <footer>
+        <div class="footer-fnaf">
+            <div class="footer-left">
+                <img src="fazbear.png" alt="Fazbear Logo" class="footer-logo" />
+                <div class="footer-text">
+                    <p class="footer-title">Catalogo de Animatronics</p><br>
+                    <span class="version">Version 87.0</span>
+                   <p class="fazbear-nao-se-responsabiliza"> A Fazbear não se responsabiliza por erros ou falhas no site, seus jogos ou animatronics.<br></p>
+                </div>
+            </div>
+            <div class="footer-right">
+                <a href="#"><i class="bi bi-github"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-center">
+            Feito com
+            <i class="bi bi-heart-fill"></i> e
+            <i class="bi bi-music-note-beamed"></i> por Danirsena
+        </div>
+    </footer>
+
 
 
     <script src="script.js"></script>
