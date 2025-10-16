@@ -49,7 +49,9 @@ class PhotoController(val photosRepository: PhotosRepository, val animatronicRep
         val newPhoto = Photo(
             id = 0, // Deixa o JPA gerar o ID
             url = photo.url,
-            animatronic = animatronic.get()
+            animatronic = animatronic.get(),
+            name = photo.name,
+            description = photo.description
         )
 
         return ResponseEntity.ok(photosRepository.save(newPhoto))
@@ -63,7 +65,9 @@ class PhotoController(val photosRepository: PhotosRepository, val animatronicRep
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
         }
         val photoToUpdate = existingPhoto.get()
-        photoToUpdate.url = updatedPhoto.url
+        photoToUpdate.url = updatedPhoto.url.ifEmpty { photoToUpdate.url }
+        photoToUpdate.name = updatedPhoto.name
+        photoToUpdate.description = updatedPhoto.description
         return ResponseEntity.ok(photosRepository.save(photoToUpdate))
     }
 

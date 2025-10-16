@@ -1,5 +1,6 @@
 package com.danirsena.fnafAPI.controllers
 
+import com.danirsena.fnafAPI.dto.AudiosDTO
 import com.danirsena.fnafAPI.dto.CREATEAudioDTO
 import com.danirsena.fnafAPI.dto.CREATEphotoDTO
 import com.danirsena.fnafAPI.dto.PhotosDTO
@@ -44,16 +45,18 @@ class AudiosController(
     }
 
     @PostMapping("/add")
-    fun addPhoto(@RequestBody photo: CREATEAudioDTO): ResponseEntity<Audio> {
+    fun addAudio(@RequestBody audio: CREATEAudioDTO): ResponseEntity<Audio> {
 
-        val animatronic = animatronicsRepository.findById(photo.animatronicId)
+        val animatronic = animatronicsRepository.findById(audio.animatronicId)
         if (animatronic.isEmpty) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
         }
 
-        val nemAudio = Audio(
+        val nemAudio = Audio (
             id = 0, // Deixa o JPA gerar o ID
-            url = photo.url,
+            url = audio.url,
+            name = audio.name,
+            description = audio.description,
             animatronic = animatronic.get()
         )
 
@@ -66,13 +69,15 @@ class AudiosController(
     }
 
     @PutMapping("/{id}")
-    fun updateAudio(@PathVariable id: Long, @RequestBody updatedAudio: Audio): ResponseEntity<Audio> {
+    fun updateAudio(@PathVariable id: Long, @RequestBody updatedAudio: AudiosDTO): ResponseEntity<Audio> {
         val existingAudio = audiosRepository.findById(id)
         if (existingAudio.isEmpty) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build()
         }
         val audioToUpdate = existingAudio.get()
-        audioToUpdate.url = updatedAudio.url
+        audioToUpdate.url = if (updatedAudio.url.isNullOrBlank()) audioToUpdate.url else updatedAudio.url
+        audioToUpdate.name = if (updatedAudio.name.isNullOrBlank()) audioToUpdate.name else updatedAudio.name
+        audioToUpdate.description = updatedAudio.description
         return ResponseEntity.ok(audiosRepository.save(audioToUpdate))
     }
 

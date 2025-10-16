@@ -1,8 +1,9 @@
-// Estado global
-let currentPhotoIndex = 0
-let currentAudioIndex = 0
 let currentCharacter = null
 let currentGameIndex = 0
+
+const audio = document.getElementById('audio');
+const playBtn = document.getElementById('playBtn');
+
 
 let animatronics = []
 let games = []
@@ -103,7 +104,6 @@ function playClickSound(audioUrl) {
 
   const audio = new Audio(audioUrl)
   audio.play()
-  //executa uma vez
 
 }
 
@@ -123,7 +123,6 @@ function initializeModal() {
 
 function openCharacterModal(character) {
   currentCharacter = character
-  currentPhotoIndex = 0
   currentAudioIndex = 0
 
   const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
@@ -161,94 +160,193 @@ function closeModal() {
 }
 
 // Carrossel de fotos
+let currentPhotoIndex = 0;
+let autoSlideInterval;
+let isPaused = false;
+
 function renderPhotoCarousel() {
-  const carousel = document.getElementById("photoCarousel")
+  const mainPhoto = document.getElementById("mainPhoto");
+  const thumbnailsContainer = document.getElementById("thumbnails");
+  thumbnailsContainer.innerHTML = "";
+
   if (!currentCharacter.photos || currentCharacter.photos.length === 0) {
-    carousel.innerHTML = `<p>Sem fotos disponíveis</p>`
-    return
+    mainPhoto.src = "";
+    mainPhoto.alt = "Sem fotos disponíveis";
+    return;
   }
-  const photoUrl = currentCharacter.photos[currentPhotoIndex].url
-  carousel.innerHTML = `<img src="${photoUrl}" alt="Foto ${currentPhotoIndex + 1}">`
+
+  currentCharacter.photos.forEach((photo, index) => {
+    const thumb = document.createElement("div");
+    thumb.classList.add("thumbnail");
+    if (index === currentPhotoIndex) thumb.classList.add("active");
+
+    thumb.innerHTML = `<img src="${photo.url}" alt="Miniatura ${index + 1}">`;
+
+    thumb.addEventListener("click", () => {
+      // Se clicar na mesma miniatura, alterna entre pausar e retomar
+      if (index === currentPhotoIndex && isPaused) {
+        startAutoSlide();
+        isPaused = false;
+      } else {
+        currentPhotoIndex = index;
+        updateMainPhoto();
+        stopAutoSlide();
+        isPaused = true;
+      }
+    });
+
+    thumbnailsContainer.appendChild(thumb);
+  });
+
+  updateMainPhoto();
+  startAutoSlide();
 }
 
-function changePhoto(direction) {
-  if (!currentCharacter.photos || currentCharacter.photos.length === 0) return
-  const totalPhotos = currentCharacter.photos.length
-  currentPhotoIndex = (currentPhotoIndex + direction + totalPhotos) % totalPhotos
-  renderPhotoCarousel()
+function updateMainPhoto() {
+  const mainPhoto = document.getElementById("mainPhoto");
+  const thumbnails = document.querySelectorAll(".thumbnail");
+
+  thumbnails.forEach((t, i) => t.classList.toggle("active", i === currentPhotoIndex));
+  mainPhoto.style.opacity = 0;
+  setTimeout(() => {
+    mainPhoto.src = currentCharacter.photos[currentPhotoIndex].url;
+    mainPhoto.style.opacity = 1;
+  }, 200);
 }
+
+function startAutoSlide() {
+  stopAutoSlide(); // Evita duplicar intervalos
+  autoSlideInterval = setInterval(() => {
+    currentPhotoIndex = (currentPhotoIndex + 1) % currentCharacter.photos.length;
+    updateMainPhoto();
+  }, 3000);
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlideInterval);
+}
+
 
 // Carrossel de áudios
 function renderAudioCarousel() {
-  const carousel = document.getElementById("audioCarousel")
-  carousel.innerHTML = ""
+  const carousel = document.getElementById("audioCarousel");
+  carousel.innerHTML = "";
 
   if (!currentCharacter.audios || currentCharacter.audios.length === 0) {
-    carousel.innerHTML = "<p>Sem áudios disponíveis</p>"
-    return
+    carousel.innerHTML = "<p>Sem áudios disponíveis</p>";
+    return;
   }
 
-  currentCharacter.audios.forEach((audio, index) => {
-    const audioItem = document.createElement("div")
-    audioItem.className = "audio-item"
+  currentCharacter.audios.forEach((audio) => {
+    const audioItem = document.createElement("div");
+    audioItem.className = "audio-item";
+
     audioItem.innerHTML = `
-            <span>${audio.name}</span>
-            <audio controls>
-                <source src="${audio.url}" type="audio/mpeg">
-                Seu navegador não suporta áudio.
-            </audio>
-        `
-    carousel.appendChild(audioItem)
-  })
-}
+      <div class="audio-container"> <div class="audio-player">
+        <div class="audio-info">
+          <h3>${audio.name || 'Áudio sem nome'}</h3>
+          <p>${audio.description || 'Sem descrição disponível'}</p>
+        </div>
 
-function changeAudio(direction) {
+        <div class="controls">
+          <button class="play-btn">
+            <svg class="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z"/>
+            </svg>
+            <svg class="pause-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+            </svg>
+          </button>          
+        </div>
 
+      </div>
+        <audio src="${audio.url}"></audio>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+          </div>
+      </div>
+    `;
+
+
+    carousel.appendChild(audioItem);
+
+    const playBtn = audioItem.querySelector(".play-btn");
+    const audioEl = audioItem.querySelector("audio");
+    const progressBar = audioItem.querySelector(".progress-bar");
+
+    playBtn.addEventListener("click", () => {
+      if (audioEl.paused) {
+        audioEl.play();
+        playBtn.classList.add("playing");
+      } else {
+        audioEl.pause();
+        playBtn.classList.remove("playing");
+      }
+    });
+
+    audioEl.addEventListener("ended", () => {
+      playBtn.classList.remove("playing");
+      progressBar.style.width = "0%";
+    });
+
+    // atualiza a barra de progresso enquanto toca
+    audioEl.addEventListener("timeupdate", () => {
+      const percent = (audioEl.currentTime / audioEl.duration) * 100;
+      progressBar.style.width = percent + "%";
+    });
+  });
 }
 
 // Busca
 function initializeSearch() {
-  const searchInput = document.getElementById("searchInput")
-  const searchResults = document.getElementById("searchResults")
+  const searchInput = document.getElementById("searchInput");
+  const searchResults = document.getElementById("searchResults");
 
   searchInput.addEventListener("input", (e) => {
-    const query = e.target.value.toLowerCase().trim()
+    const query = e.target.value.toLowerCase().trim();
 
     if (query.length < 2) {
-      searchResults.classList.remove("active")
-      return
+      searchResults.classList.remove("active");
+      return;
     }
 
-    const results = []
+    const results = [];
 
-    // Buscar jogos
+    // Buscar Jogos
     games.forEach((game, gameIndex) => {
       if (game.name.toLowerCase().includes(query)) {
         results.push({
           type: "game",
           text: game.name,
           action: () => scrollToGame(gameIndex),
-        })
+        });
       }
+    });
 
-      // Buscar personagens
-      animatronics.forEach((character) => {
-        if (character.name.toLowerCase().includes(query)) {
-          results.push({
-            type: "character",
-            text: `${character.name} (${game.name})`,
-            action: () => {
-              scrollToGame(gameIndex)
-              setTimeout(() => openCharacterModal(character), 500)
-            },
-          })
-        }
-      })
-    })
+    // Buscar Personagens
+    animatronics.forEach((character) => {
+      const nameMatch = character.name.toLowerCase().includes(query);
+      if (nameMatch) {
+        const gameIndex = games.findIndex((g) => g.id === character.game.id);
+        const gameName = games[gameIndex]?.name || "Jogo desconhecido";
 
-    renderSearchResults(results)
-  })
+        results.push({
+          type: "character",
+          text: `${character.name} (${gameName})`,
+          action: () => {
+            if (gameIndex !== -1) {
+              scrollToGame(gameIndex);
+            }
+            setTimeout(() => openCharacterModal(character), 500);
+          },
+        });
+      }
+    });
+
+    renderSearchResults(results);
+  });
 }
+
 
 function renderSearchResults(results) {
   const searchResults = document.getElementById("searchResults")
@@ -356,12 +454,55 @@ async function loadAPIFNaF() {
 
 // Inicia o jogo
 document.addEventListener("DOMContentLoaded", async () => {
+  await loadAPIFNaF();
 
-  await loadAPIFNaF()
+  await initializeSidebar();
+  await initializeGames();
+  await initializeSearch();
+  await initializeModal();
+  await initializeScrollAnimation();
 
-  initializeSidebar()
-  initializeGames()
-  initializeSearch()
-  initializeModal()
-  initializeScrollAnimation()
-})
+  // Agora que tudo foi carregado, pega os elementos
+  const playBtn = document.querySelector('.play-btn');
+  const audio = document.querySelector('audio');
+
+  if (playBtn && audio) {
+    playBtn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        playBtn.classList.add('playing');
+      } else {
+        audio.pause();
+        playBtn.classList.remove('playing');
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      playBtn.classList.remove('playing');
+    });
+  }
+});
+
+function initializeMusicToggle() {
+  const button = document.getElementById("musicToggle");
+  const icon = document.getElementById("musicIcon");
+  const audio = document.getElementById("backgroundMusic");
+
+  let isPlaying = false;
+
+  button.addEventListener("click", () => {
+    if (!isPlaying) {
+      audio.play();
+      icon.classList.remove("bi-volume-mute-fill");
+      icon.classList.add("bi-volume-up-fill");
+    } else {
+      audio.pause();
+      icon.classList.remove("bi-volume-up-fill");
+      icon.classList.add("bi-volume-mute-fill");
+    }
+    isPlaying = !isPlaying;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", initializeMusicToggle);
+

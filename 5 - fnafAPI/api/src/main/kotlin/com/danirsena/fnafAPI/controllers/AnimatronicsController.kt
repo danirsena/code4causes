@@ -70,8 +70,23 @@ class AnimatronicsController(
 
 
     @PostMapping("/addBatch")
-    fun addBatchAnimatronics(@RequestBody animatronics: List<Animatronic>): ResponseEntity<List<Animatronic>> {
-        return ResponseEntity.ok(animatronicRepository.saveAll(animatronics))
+    fun addBatchAnimatronics(@RequestBody animatronics: List<CREATEAnimatronicDTO>): ResponseEntity<List<Animatronic>> {
+        val animatronicsToSave = animatronics.map { animatronic ->
+            Animatronic(
+                name = animatronic.name,
+                description = animatronic.description,
+                creator = animatronic.creator,
+                typeAnimatronic = typesRepository.findById(animatronic.typeId)
+                    .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND, "Tipo de animatronic não encontrado (id=${animatronic.typeId})") },
+                game = gamesRepository.findById(animatronic.gameId)
+                    .orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND, "Jogo não encontrado (id=${animatronic.gameId})") },
+                characterVoice = animatronic.characterVoice,
+                possessed = animatronic.possessed,
+                audios = emptyList(),
+                photos = emptyList()
+            )
+        }
+        return ResponseEntity.ok(animatronicRepository.saveAll(animatronicsToSave))
     }
 
     @PutMapping("/{id}")

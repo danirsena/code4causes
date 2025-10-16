@@ -10,8 +10,12 @@
     <!-- Google Fonts, Roboto e MOntserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
+
+    <!-- Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -58,45 +62,53 @@
 
     <!-- Modal de Personagem -->
     <div id="characterModal" class="modal">
+
         <div class="modal-content">
+
+            <!-- Carrossel de Fotos -->
+            <div class="carousel-section" style="width: 40%;">
+                <h2>Galeria de Fotos</h2>
+                <div class="photo-carousel">
+                    <div class="main-photo">
+                        <img id="mainPhoto" src="" alt="Imagem principal">
+                    </div>
+                    <div class="thumbnails" id="thumbnails"></div>
+                </div>
+            </div>
+
+
             <button class="modal-close">&times;</button>
-            <div class="modal-body">
-                <div class="modal-header">
-                    <img id="modalImage" src="" alt="" class="modal-profile-img">
-                    <div class="modal-info">
-                        <h2 id="modalName"></h2>
-                        <span id="modalType" class="modal-type"></span>
+            <div>
+                <div class="modal-body">
+                    <div class="modal-header">
+                        <img id="modalImage" src="" alt="" class="modal-profile-img">
+                        <div class="modal-info">
+                            <h2 id="modalName"></h2>
+                            <span id="modalType" class="modal-type"></span>
+                        </div>
                     </div>
-                </div>
-
-                <p id="modalDescription" class="modal-description"></p>
-
-                <!-- Carrossel de Fotos -->
-                <div class="carousel-section">
-                    <h3>Galeria de Fotos</h3>
-                    <div class="carousel">
-                        <button class="carousel-btn prev" onclick="changePhoto(-1)">‹</button>
-                        <div id="photoCarousel" class="carousel-content"></div>
-                        <button class="carousel-btn next" onclick="changePhoto(1)">›</button>
+                    <p id="modalDescription" class="modal-description"></p>
+                    <!-- Carrossel de Áudios -->
+                    <div class="carousel-section" id="audioSection">
+                        <h3>Áudios</h3>
+                        <div class="carousel">
+                            <div id="audioCarousel" class="carousel-content audio-carousel"></div>
+                        </div>
                     </div>
-                </div>
-
-                <!-- Carrossel de Áudios -->
-                <div class="carousel-section" id="audioSection">
-                    <h3>Áudios</h3>
-                    <div class="carousel">
-                        <button class="carousel-btn prev" onclick="changeAudio(-1)">‹</button>
-                        <div id="audioCarousel" class="carousel-content audio-carousel"></div>
-                        <button class="carousel-btn next" onclick="changeAudio(1)">›</button>
+                    <div id="noAudioMessage" class="no-audio" style="display: none;">
+                        <p>⚠️ Este personagem não possui áudios disponíveis</p>
                     </div>
-                </div>
-
-                <div id="noAudioMessage" class="no-audio" style="display: none;">
-                    <p>⚠️ Este personagem não possui áudios disponíveis</p>
                 </div>
             </div>
         </div>
     </div>
+
+    <button id="musicToggle" class="btn ">
+        <i id="musicIcon" class="bi bi-volume-mute-fill"></i>
+    </button>
+
+    <audio id="backgroundMusic" src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/UCN_main_menu_theme.ogg" loop></audio>
+
 
     <script src="script.js"></script>
 </body>

@@ -1,9 +1,17 @@
+version: "3.9"
+
 services:
   postgres:
-    image: 'postgres:latest'
+    container_name: fnafapi-postgres           # nome fixo
+    image: postgres:latest
     environment:
-      - 'POSTGRES_DB=fnafAPI'
-      - 'POSTGRES_PASSWORD=balloramother'
-      - 'POSTGRES_USER=willafton'
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: senha123
     ports:
-      - '5432'
+      - "5432:5432"
+    volumes:
+      - 6231371b06ec92cca4f6d8b31cda58bc5818ebdadcc01cceb7f5a70429174ea9:/var/lib/postgresql/data
+
+volumes:
+  6231371b06ec92cca4f6d8b31cda58bc5818ebdadcc01cceb7f5a70429174ea9:
+    external: true

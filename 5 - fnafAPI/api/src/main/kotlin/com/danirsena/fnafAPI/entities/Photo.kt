@@ -25,6 +25,10 @@ data class Photo (
     @Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
     val id: Long,
 
+    @Column var name: String?,
+
+    @Column var description: String?,
+
     @Column
     var url: String,
 

@@ -14,6 +14,7 @@ import lombok.AllArgsConstructor
 import lombok.Getter
 import lombok.NoArgsConstructor
 import lombok.Setter
+import org.springframework.context.annotation.Description
 
 @Entity
 @Table(name = "audio")
@@ -27,7 +28,11 @@ class Audio(
     val id: Int,
 
     @Column
-    var url: String,
+    var url: String?,
+
+    @Column var name: String?,
+
+    @Column var description: String?,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "animatronic_id")
