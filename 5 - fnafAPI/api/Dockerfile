@@ -1,38 +1,32 @@
-# Estágio de Build (Maven/JDK)
-# Usamos a imagem oficial do Maven com o JDK 21
-FROM maven:3.9.5-jdk-21 AS build
+# ---------------------------
+# Estágio 1: Build (Maven + JDK)
+# ---------------------------
+FROM maven:3.9.5-eclipse-temurin-21 AS build
 
-# Define o diretório de trabalho
 WORKDIR /app
 
-# Copia os arquivos de configuração do Maven para cache
+# Copia o pom.xml e o settings.xml (opcional)
 COPY pom.xml .
-# O settings.xml geralmente é opcional, mas mantemos
-COPY settings.xml .
 
-# Baixa as dependências.
+# Baixa dependências para cache
 RUN mvn dependency:go-offline
 
-# Copia o restante do código-fonte (Kotlin)
+# Copia o restante do código-fonte
 COPY src ./src
 
-# Executa o build final, gerando o JAR executável na pasta target
+# Compila o projeto (sem testes)
 RUN mvn clean package -DskipTests
 
-# --------------------------------------------------------------------------
-
-# Estágio de Runtime (Produção - JRE)
-# Usamos o Eclipse Temurin JRE 21 (mais popular e confiável) baseado em Alpine (pequeno)
+# ---------------------------
+# Estágio 2: Runtime (JRE leve)
+# ---------------------------
 FROM eclipse-temurin:21-jre-alpine
 
-# Define a porta
+WORKDIR /app
 EXPOSE 8080
 
-# Define o diretório de trabalho
-WORKDIR /app
-
-# Copia o JAR do estágio de Build para o estágio de Runtime
+# Copia o jar gerado no build
 COPY --from=build /app/target/*.jar app.jar
 
-# Comando que será executado quando o container iniciar
+# Comando de inicialização
 ENTRYPOINT ["java", "-jar", "app.jar"]
