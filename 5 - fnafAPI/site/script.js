@@ -442,7 +442,7 @@ async function loadAPIFNaF() {
   try {
 
     // Carrega com os animatronics
-    const response = await fetch("http://localhost:8080/apiFNAF/animatronics")
+    const response = await fetch("https://apifnaf-site.onrender.com/apiFNAF/animatronics")
     const data = await response.json()
 
     data.forEach(animatronic => {
@@ -450,7 +450,7 @@ async function loadAPIFNaF() {
     })
 
     //Carrega com os games
-    const response2 = await fetch("http://localhost:8080/apiFNAF/games")
+    const response2 = await fetch("https://apifnaf-site.onrender.com/apiFNAF/games")
     const data2 = await response2.json()
 
     data2.forEach(game => {
