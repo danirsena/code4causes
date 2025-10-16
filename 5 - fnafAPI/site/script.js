@@ -80,8 +80,15 @@ function dateFormate(date) {
 
 // Criar card de personagem
 function createCharacterCard(character) {
-  const card = document.createElement("div")
-  card.className = "character-card"
+  const card = document.createElement("div");
+  card.className = "character-card";
+
+  // Define a borda com a imagem
+  card.style.borderWidth = "9px"; // define a espessura da borda
+  card.style.borderStyle = "solid";
+  card.style.borderImage = `url(${character.game.photoUrl}) 30 round`;
+  // '30' é a fatia da borda (ajuste conforme a imagem)
+  // 'round' faz a imagem repetir na borda se necessário
 
   const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
 
@@ -89,14 +96,14 @@ function createCharacterCard(character) {
         <img src="${imageUrl}" alt="${character.name}" class="character-img">
         <h3>${character.name}</h3>
         <span class="character-type">${character.typeAnimatronic.name}</span>
-    `
+    `;
 
   card.addEventListener("click", () => {
-    playClickSound("audios/monitor.ogg")
-    openCharacterModal(character)
-  })
+    playClickSound("audios/monitor.ogg");
+    openCharacterModal(character);
+  });
 
-  return card
+  return card;
 }
 
 // Som de clique (simulado)
@@ -128,6 +135,9 @@ function openCharacterModal(character) {
   const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
 
   const modal = document.getElementById("characterModal")
+
+  modal.style.backgroundImage = `url(${character.game.photoUrl})`;
+  
 
   // Preencher informações
   document.getElementById("modalName").textContent = character.name
