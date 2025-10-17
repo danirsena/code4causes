@@ -4,14 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FNAF Games Encyclopedia</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="shortcut icon" href="fazbear.png" type="image/x-icon">
-    <!-- Google Fonts, Roboto e MOntserrat -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
+    <title>FNaF Encyclopedia</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link rel="shortcut icon" href="assets/imgs/fazbear.png" type="image/x-icon">
+
+    <!-- Google Fonts, Roboto e Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap"
         rel="stylesheet">
 
     <!-- Bootstrap icons-->
@@ -20,15 +18,14 @@
 
 <body>
 
-    <!-- Loader -->
+    <!-- Loader do Helpy-->
     <div id="loader">
-        <img src="fazbear.gif" alt="Fazbear animatronic" id="loader-gif" />
+        <img src="assets/imgs/helpy.gif" alt="Fazbear animatronic" id="loader-gif"/>
         <div id="loader-bar">
             <div id="loader-progress"></div>
         </div>
         <p>A FAZBEARS agradece sua colaboração!<br>Os animatronics estão sendo carregados...</p>
     </div>
-
 
     <!-- Menu Lateral -->
     <aside id="sidebar" class="sidebar">
@@ -50,13 +47,14 @@
 
     <!-- Conteúdo Principal -->
     <main id="mainContent" class="main-content">
+
         <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="hero-content">
                 <h1 class="hero-title">FNaF Encyclopedia</h1>
                 <p class="hero-subtitle">Explore o universo aterrorizante de Five Nights at Freddy's</p>
                 <div class="hero-description">
-                    <p>Bem-vindo à enciclopédia completa dos jogos FNAF! Aqui você encontrará informações detalhadas
+                    <p>Bem-vindo à enciclopédia completa dos jogos FNaF! Aqui você encontrará informações detalhadas
                         sobre cada jogo da franquia, seus personagens icônicos e suas histórias assustadoras.</p>
                     <p>Five Nights at Freddy's é uma série de jogos de terror que revolucionou o gênero, criando uma
                         mitologia complexa sobre animatrônicos possuídos em uma pizzaria. Navegue pelos jogos, descubra
@@ -87,8 +85,9 @@
                 </div>
             </div>
 
-
+            <!-- Informações do Personagem -->
             <button class="modal-close">&times;</button>
+
             <div>
                 <div class="modal-body">
                     <div class="modal-header">
@@ -99,6 +98,7 @@
                         </div>
                     </div>
                     <p id="modalDescription" class="modal-description"></p>
+
                     <!-- Carrossel de Áudios -->
                     <div class="carousel-section" id="audioSection">
                         <h3>Áudios</h3>
@@ -118,19 +118,21 @@
         <i id="musicIcon" class="bi bi-volume-mute-fill"></i>
     </button>
 
+    <!-- Música de Fundo, atualmente da tela inicial do FNaF UCN -->
     <audio id="backgroundMusic"
-        src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/UCN_main_menu_theme.ogg" loop></audio>
+        src="https://static.wikia.nocookie.net/freddy-fazbears-pizza/images/2/2d/UCN_main_menu_theme.ogg" loop>
+    </audio>
 
     <!-- Conteúdo do site -->
     <div id="site-content" style="display:none;">
         <!-- Aqui vai seu site normal -->
     </div>
 
-
+    <!-- Rodapé -->
     <footer>
         <div class="footer-fnaf">
             <div class="footer-left">
-                <img src="fazbear.png" alt="Fazbear Logo" class="footer-logo" />
+                <img src="assets/imgs/fazbear.png" alt="Fazbear Logo" class="footer-logo" />
                 <div class="footer-text">
                     <p class="footer-title">Catalogo de Animatronics</p><br>
                     <span class="version">Version 87.0</span>
@@ -143,15 +145,11 @@
             </div>
         </div>
         <div class="footer-center">
-            Feito com
-            <i class="bi bi-heart-fill"></i> e
-            <i class="bi bi-music-note-beamed"></i> por Danirsena
+            Feito com muito <i class="bi bi-heart-fill"></i> e <i class="bi bi-music-note-beamed"></i> por Danirsena
         </div>
     </footer>
 
-
-
-    <script src="script.js"></script>
+    <script src="assets/script.js" type="module"></script>
 </body>
 
 </html>

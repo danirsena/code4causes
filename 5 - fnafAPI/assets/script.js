@@ -1,21 +1,22 @@
 let currentCharacter = null
 let currentGameIndex = 0
 
+let currentAudioIndex = 0
+
 const audio = document.getElementById('audio');
 const playBtn = document.getElementById('playBtn');
-
 
 let animatronics = []
 let games = []
 
-// Sidebar
+// Barra de pesquisa
 function initializeSidebar() {
   const sidebar = document.getElementById("sidebar")
   const toggleBtn = document.getElementById("toggleSidebar")
 
   toggleBtn.addEventListener("click", () => {
     sidebar.classList.toggle("collapsed")
-    playClickSound("audios/close.ogg")
+    playClickSound("assets/audios/close.ogg")
   })
 
   // Criar navegação dos jogos
@@ -27,7 +28,7 @@ function initializeSidebar() {
     navItem.addEventListener("click", (
       () => {
         scrollToGame(index)
-        playClickSound("audios/nav-item.ogg")
+        playClickSound("assets/audios/nav-item.ogg")
       }
     ))
     gameNav.appendChild(navItem)
@@ -90,7 +91,7 @@ function createCharacterCard(character) {
   // '30' é a fatia da borda (ajuste conforme a imagem)
   // 'round' faz a imagem repetir na borda se necessário
 
-  const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
+  const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "imgs/default.png";
 
   card.innerHTML = `
         <img src="${imageUrl}" alt="${character.name}" class="character-img">
@@ -99,19 +100,17 @@ function createCharacterCard(character) {
     `;
 
   card.addEventListener("click", () => {
-    playClickSound("audios/monitor.ogg");
+    playClickSound("assets/audios/monitor.ogg");
     openCharacterModal(character);
   });
 
   return card;
 }
 
-// Som de clique (simulado)
+// Função para tocar os sons
 function playClickSound(audioUrl) {
-
   const audio = new Audio(audioUrl)
   audio.play()
-
 }
 
 // Modal
@@ -132,7 +131,7 @@ function openCharacterModal(character) {
   currentCharacter = character
   currentAudioIndex = 0
 
-  const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
+  const imageUrl = character.photos && character.photos.length > 0 ? character.photos[0].url : "imgs/default.png";
 
   const modal = document.getElementById("characterModal")
 
@@ -142,7 +141,7 @@ function openCharacterModal(character) {
   // Preencher informações
   document.getElementById("modalName").textContent = character.name
   document.getElementById("modalType").textContent = character.typeAnimatronic.name
-  document.getElementById("modalImage").src = character.photos && character.photos.length > 0 ? character.photos[0].url : "default.png";
+  document.getElementById("modalImage").src = character.photos && character.photos.length > 0 ? character.photos[0].url : "imgs/default.png";
   document.getElementById("modalDescription").textContent = character.description
 
   // Carrossel de fotos
@@ -166,7 +165,7 @@ function closeModal() {
   const modal = document.getElementById("characterModal")
   modal.classList.remove("active")
   document.body.style.overflow = "auto"
-  playClickSound("audios/close.ogg")
+  playClickSound("assets/audios/close.ogg")
 }
 
 // Carrossel de fotos
@@ -522,4 +521,3 @@ function initializeMusicToggle() {
 }
 
 document.addEventListener("DOMContentLoaded", initializeMusicToggle);
-

@@ -1,0 +1,9 @@
+@import url(css/root.css); /* Cores globais */
+@import url(css/sidebar.css); /* Barra lateral */
+@import url(css/hero.css); /* Hero Section */
+@import url(css/main.css); /* Layout gerais, loaders, etc */
+@import url(css/section_cards.css); /* Seções dos jogos e cards dos animatronics */
+@import url(css/modal.css); /* Modal dos animatronics */
+@import url(css/carousel_audio.css); /* Carrousel dos audios, presentes no modal dos animatronics */
+@import url(css/carousel_image.css); /* Carrousel das imagens, presentes no modal dos animatronics */
+@import url(css/rodape.css); /* Rodapé */
